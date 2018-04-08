@@ -25,9 +25,53 @@ $street_err=$city_err=$state_err=$country_err=$zipcode_err=$username_err = $pass
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-  $username= trim( preg_replace("/\t|\R/",' ',$_POST['username']) );
+  // checking username if valid or not
+  if(empty(trim($_POST["username"]))){
+      $username_err = "Please enter a username.";
+  } else{
+      // Prepare a select statement
+      $sql = "SELECT MANAGER.ID FROM MANAGER WHERE MANAGER.Username = ?";
+
+      $stmt=$link->prepare($sql);
+      $stmt ->bind_param('s', $username_check);
+      $username_check = trim( preg_replace("/\t|\R/",' ',$_POST['username']) );
+      if($stmt->execute()){
+          /* store result */
+          $stmt->store_result();
+          if($stmt->num_rows() == 1){
+              $username_err = "This name already taken.";
+          } else{
+              $username = trim( preg_replace("/\t|\R/",' ',$_POST['username']) );
+          }
+      } else{
+          echo "Please try again later.";
+      }
+      $stmt->close();
+
+  }
+
+  // checking password
+  if(empty(trim($_POST['password']))){
+      $password_err = "Please enter a password.";
+  } elseif(strlen(trim($_POST['password'])) < 6){
+      $password_err = "Password must have atleast 6 characters.";
+  } else{
+    $password = trim( preg_replace("/\t|\R/",' ',$_POST['password']) );
+  }
+
+  // Validate confirm password
   $password = trim( preg_replace("/\t|\R/",' ',$_POST['password']) );
   $confirm_password=trim( preg_replace("/\t|\R/",' ',$_POST['confirm_password']) );
+
+  if(empty(trim($_POST["confirm_password"]))){
+      $confirm_password_err = 'Please confirm password.';
+  } else{
+      $confirm_password = trim($_POST['confirm_password']);
+      if($password != $confirm_password){
+          $confirm_password_err = 'Password did not match.';
+      }
+  }
+  // chekcing the rest if empty
   $lastname= trim( preg_replace("/\t|\R/",' ',$_POST['lastname']) );
   $firstname= trim( preg_replace("/\t|\R/",' ',$_POST['firstname']) );
   $street =  trim( preg_replace("/\t|\R/",' ',$_POST['street']) );
@@ -36,6 +80,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $country=trim( preg_replace("/\t|\R/",' ',$_POST['country']) );
   $zip=trim( preg_replace("/\t|\R/",' ',$_POST['zip']) );
 
+  if(empty($lastname)){
+  $lname_err ="Please inut your last name";
+  }
+
+
+ if(empty($firstname)){
+    $fname_err="Please input your first name";
+  }
+ if(empty($street)){
+    $street_err ="missing street";
+  }
+ if(empty($city)){
+    $city_err = "missing city";
+
+  }
+  if (empty($state)){
+    $state_err = "missing state";
+  }
+ if(empty ($country)){
+    $country_err= "missing country";
+  }
+  if(empty ($zip)){
+    $zipcode_err = "missing zipcode";
+    if(strlen($zip) < 6){
+      $zipcode_err = "Missing digits";
+    }
+    else
+    $zip=trim( preg_replace("/\t|\R/",' ',$_POST['zip']) );
+  }
 
     // Check input errors before inserting in database
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&& empty($address_err)&&empty($phone_err) &&empty($name_err)){
@@ -54,26 +127,25 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&
         $stmt=$link->prepare($sql);
         $stmt->bind_param('ssssssssd',
         $username,
-        $password = password_hash($Password, PASSWORD_DEFAULT),
+        $password = password_hash($password, PASSWORD_DEFAULT),
         $firstname,
         $lastname,
         $street ,
         $city,
         $state,
         $country,
-        $zipCode);
+        $zip);
         // Attempt to execute the prepared statement
       if($stmt->execute()){
                 // Redirect to login page
-          header("location: welcome.html");
+          header("location: welcome.php");
       }
       else{
           echo "Something went wrong. Please try again later.";
           }
+          $stmt->close();
 
       }
-        // close statment query
-        $stmt->close();
 
 
 
@@ -90,13 +162,12 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+        .wrapper{ width: 350px; padding: 20px; background-color:lightblue}
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+    <div class="wrapper" >
+        <h2>Sign Up As a Team Manager</h2>
 
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -144,6 +215,11 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&
                   <span class="help-block"><?php echo $state_err; ?></span>
          </div>
 
+       <div class="form-group <?php echo (!empty($country_err)) ? 'has-error' : ''; ?>">
+               <label>Country:<sup>*</sup></label>
+               <input type="text" name="country"class="form-control" value="<?php echo $country; ?>">
+               <span class="help-block"><?php echo $country_err; ?></span>
+      </div>
           <div class="form-group <?php echo (!empty($zipcode_err)) ? 'has-error' : ''; ?>">
                 <label>ZipCode:<sup>*</sup></label>
                 <input type="text" name="zip"class="form-control" value="<?php echo $zip; ?>">
@@ -153,7 +229,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <p>Already have an account? <a href="welcome.php">Login here</a>.</p>
         </form>
     </div>
 </body>

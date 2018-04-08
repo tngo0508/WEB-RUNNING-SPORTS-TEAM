@@ -15,7 +15,7 @@
 		<header>
 			<div class= "container">
 				<div id= "top">
-          <img src="./logo/logo.png" alt="CSUF LOGO" height="50" width="50" />
+          <img src="./logo/LOGO.jpg" alt="CSUF LOGO" height="100" width="100" />
 					<h1> CSUF BASKETBALL TEAM </h1>
 				</div>
 				<nav>

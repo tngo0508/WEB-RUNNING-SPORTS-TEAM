@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html>
@@ -15,8 +19,8 @@
 		<header>
 			<div class= "container">
 				<div id= "top">
-          <img src="./logo/logo.png" alt="CSUF LOGO" height="50" width="50" />
-					<h1> CSUF BASKETBALL TEAM </h1>
+          <img src="./logo/1.jpg" alt="CSUF LOGO" height="100" width="100" />
+					<h1> BASKETBALL TEAM MANAGEMENT </h1>
 				</div>
 				<nav>
 					<ul>
@@ -31,7 +35,9 @@
 				<div class= "flex-containter">
 					<div class="leftpane">
 					<h1>Login form</h1>
-				<form method="post" action="login.php">
+					<?php require_once('login.php') ?>
+
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 						<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
 								<label>Username:<sup>*</sup></label>
 								<input type="text" name="username"class="form-control">
@@ -67,7 +73,7 @@
 	</div>
 </section>
 <section id = "boxes">
-	<img src="./logo/12.jpg" />
+	<img src="./logo/3.jpg" />
 </section>
 <footer>
 <p> Author by CPSC 431 TEAM, copyright &copy; 2018 </p>

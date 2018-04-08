@@ -24,8 +24,9 @@ CREATE TABLE TEAMS
 CREATE TABLE ADMIN
 (
   ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Username VARCHAR(100),
-  Password VARCHAR(100),
+  Password varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  Username varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY (password),
   Name_First VARCHAR(100),
   Name_Last VARCHAR(150) NOT NULL,
  
@@ -102,8 +103,9 @@ CREATE TABLE Player
 CREATE TABLE MANAGER
 (
   ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Username VARCHAR(100),
-  Password VARCHAR(100),
+  Password varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  Username varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY (password),
   Name_First VARCHAR(100),
   Name_Last VARCHAR(150) NOT NULL,
   Street VARCHAR(250),
