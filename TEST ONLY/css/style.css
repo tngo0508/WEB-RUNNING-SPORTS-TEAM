@@ -36,6 +36,28 @@ body{
   border-collapse: collapse;
   border-bottom:#e8491d 3px solid;
 }
+/* manager */
+
+.mleftpane {
+    width: 25%;
+    height: 100%;
+    float: left;
+    background:white;
+    color:#ffffff;
+    border-collapse: collapse;
+    border-bottom:#e8491d 3px solid;
+}
+
+
+.mrightpane {
+  width: 75%;
+  height: 100%;
+  position: relative;
+  float: right;
+  background-color: white;
+  border-collapse: collapse;
+  border-bottom:#e8491d 3px solid;
+}
 article {
     margin-left: 170px;
     border-left: 1px solid gray;
@@ -136,7 +158,29 @@ header a:hover{
   font-size:15px;
 
 }
+/* manager page */
 
+manager article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+#manager nav {
+    float: left;
+    max-width:300px;
+    margin: 0;
+    padding: 1em;
+}
+#manager h1{
+  font-size:30px;
+  margin-top:20px;
+}
+
+#manager p{
+  font-size:15px;
+
+}
 
 /* Boxes */
 #boxes{
