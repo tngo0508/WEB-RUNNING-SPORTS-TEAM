@@ -25,8 +25,8 @@ $street_err=$city_err=$state_err=$country_err=$zipcode_err=$username_err = $pass
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-  $username= trim( preg_replace("/\t|\R/",' ',$_POST['username']) );
-  $password = trim( preg_replace("/\t|\R/",' ',$_POST['password']) );
+  $username= trim($_POST['username']);
+  $password = trim($_POST['password']);
   $confirm_password=trim( preg_replace("/\t|\R/",' ',$_POST['confirm_password']) );
   $lastname= trim( preg_replace("/\t|\R/",' ',$_POST['lastname']) );
   $firstname= trim( preg_replace("/\t|\R/",' ',$_POST['firstname']) );
@@ -54,7 +54,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&
         $stmt=$link->prepare($sql);
         $stmt->bind_param('ssssssssd',
         $username,
-        $password = password_hash($Password, PASSWORD_DEFAULT),
+        $password = password_hash($password, PASSWORD_DEFAULT),
         $firstname,
         $lastname,
         $street ,
@@ -65,7 +65,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&
         // Attempt to execute the prepared statement
       if($stmt->execute()){
                 // Redirect to login page
-          header("location: welcome.html");
+          header("location: welcome.php");
       }
       else{
           echo "Something went wrong. Please try again later.";
