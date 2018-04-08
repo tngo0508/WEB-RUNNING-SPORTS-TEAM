@@ -146,12 +146,15 @@ header a:hover{
 #boxes .box{
   float:left;
   text-align: center;
-  width:100%;
+  width:max-width;
   padding:10px;
 }
 
 #boxes .box img{
   width:100%;
+  position: absolute;
+  float:right;
+
 }
 
 

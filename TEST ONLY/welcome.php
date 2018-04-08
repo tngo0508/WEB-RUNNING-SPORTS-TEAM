@@ -19,8 +19,8 @@
 		<header>
 			<div class= "container">
 				<div id= "top">
-          <img src="./logo/logo.png" alt="CSUF LOGO" height="50" width="50" />
-					<h1> CSUF BASKETBALL TEAM </h1>
+          <img src="./logo/1.jpg" alt="CSUF LOGO" height="100" width="100" />
+					<h1> BASKETBALL TEAM MANAGEMENT </h1>
 				</div>
 				<nav>
 					<ul>
@@ -73,7 +73,7 @@
 	</div>
 </section>
 <section id = "boxes">
-	<img src="./logo/12.jpg" />
+	<img src="./logo/3.jpg" />
 </section>
 <footer>
 <p> Author by CPSC 431 TEAM, copyright &copy; 2018 </p>
