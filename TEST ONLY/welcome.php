@@ -24,7 +24,7 @@
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.html">Home</a></li>
+						<li><a href="welcome.php">Home</a></li>
 						<li><a href="https://catalog.fullerton.edu/content.php?catoid=1&navoid=93">About</a></li>
             <li><a href="services.html">Services</a></li>
 					</ul>

@@ -16,20 +16,18 @@
     <h1><a href="logout.php" class="btn btn-danger">Sign Out</a></h1>
     <section id = "manager">
 
-    <div class= "flex-container">
-      <div class="mleftpane">
-      <h1>what do you want to do today?</h1>
-      <p>HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-        EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-        E</p>
-    </div>
-    <div class="mrightpane">
-    <h1>Schedule Your Team</h1>
-    <p>HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE  </p>
-    </div>
-  </div>
+    <div class= "flex-boxs">
 
-</section>
+      <h1>what do you want to do today?</h1>
+      <h1>Your team </h1>
+
+
+    </div>
+
+
+
+
+      </section>
   </body>
 
   <?php

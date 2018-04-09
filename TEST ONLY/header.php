@@ -15,12 +15,12 @@
 		<header>
 			<div class= "container">
 				<div id= "top">
-          <img src="./logo/LOGO.jpg" alt="CSUF LOGO" height="100" width="100" />
+          <img src="./logo/1.jpg" alt="CSUF LOGO" height="100" width="100" />
 					<h1> CSUF BASKETBALL TEAM </h1>
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.html">Home</a></li>
+						<li><a href="welcome.php">Home</a></li>
 						<li><a href="https://catalog.fullerton.edu/content.php?catoid=1&navoid=93">About</a></li>
             <li><a href="services.html">Services</a></li>
 					</ul>

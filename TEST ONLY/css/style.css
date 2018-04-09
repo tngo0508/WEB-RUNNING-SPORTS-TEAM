@@ -38,26 +38,7 @@ body{
 }
 /* manager */
 
-.mleftpane {
-    width: 25%;
-    height: 100%;
-    float: left;
-    background:white;
-    color:#ffffff;
-    border-collapse: collapse;
-    border-bottom:#e8491d 3px solid;
-}
 
-
-.mrightpane {
-  width: 75%;
-  height: 100%;
-  position: relative;
-  float: right;
-  background-color: white;
-  border-collapse: collapse;
-  border-bottom:#e8491d 3px solid;
-}
 article {
     margin-left: 170px;
     border-left: 1px solid gray;
@@ -180,6 +161,14 @@ manager article {
 #manager p{
   font-size:15px;
 
+}
+#manager .flex-boxs {
+  display: flex;
+  justify-content: space-between;
+}
+#manager .flex-boxs1 {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Boxes */

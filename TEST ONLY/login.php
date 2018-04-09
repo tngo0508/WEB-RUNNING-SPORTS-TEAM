@@ -38,7 +38,7 @@ if ( empty($username)){
 // password check
 
 if ( empty($password)){
-    $password_err= 'Please enter your username here.';
+    $password_err= 'Please enter your password here.';
 }else {
     $password = $password;
 }
@@ -64,13 +64,14 @@ if(empty($username_err) &&empty($password_err) ){
 
       while($stmt->fetch()==1){
 
-          
+
         if(password_verify($password,$hashed_password)){
                   session_start();
                   $_SESSION['username'] = $username;
                  $_SESSION['id'] = $id;
 
                   header("location: manager_page.php");
+                  
                 }
                 else{
                   $password_err = "\n The password Incorrect ):";
