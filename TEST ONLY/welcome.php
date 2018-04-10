@@ -38,13 +38,13 @@
 					<?php require_once('login.php') ?>
 
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-						<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-								<label>Username:<sup>*</sup></label>
-								<input type="text" name="username"class="form-control">
-								<span class="help-block"><?php echo $username_err; ?></span>
+						<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+								<label>Email:<sup>*</sup></label>
+								<input type="text" name="email"class="form-control">
+								<span class="help-block"><?php echo $email_err; ?></span>
 						</div>
 						<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-								<label>Password:<sup>*</sup></label>
+								<label>Pass:<sup>*</sup></label>
 								<input type="password" name="password" class="form-control">
 								<span class="help-block"><?php echo $password_err; ?></span>
 						</div>

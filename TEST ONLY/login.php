@@ -1,17 +1,17 @@
 <?php
 
-$username = $password ="";
+$email = $password ="";
 $id = "";
-$username_err = $password_err = "";
+$email_err = $password_err = "";
 
-if( empty($username) ) $username = null;
+if( empty($email) ) $email = null;
 if( empty($password)  ) $password  = null;
 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
-  if(empty(trim(preg_replace("/\t|\R/",' ',$_POST['username'])))){
-        $username_err = 'Please enter username.';
+  if(empty(trim(preg_replace("/\t|\R/",' ',$_POST['email'])))){
+        $email_err = 'Please enter email.';
     } else{
-        $username = trim($_POST["username"]);
+        $email = trim($_POST["email"]);
     }
 
     // Check if password is empty
@@ -29,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
   }
 
 // users check
-if ( empty($username)){
-    $username_err= 'Please enter your username here.';
+if ( empty($email)){
+    $email_err= 'Please enter your email here.';
 }else {
-    $username = $username;
+    $email = $email;
 }
 
 // password check
@@ -44,34 +44,49 @@ if ( empty($password)){
 }
 // check validate credentials
 
-if(empty($username_err) &&empty($password_err) ){
+if(empty($email_err) &&empty($password_err) ){
 
     $query= " SELECT
-              MANAGER.ID,
-              MANAGER.Username,
-              MANAGER.Password
+              USERS.ID,
+              USERS.Email,
+              USERS.Password,
+              USERS.Type
 
-              FROM MANAGER
-              WHERE MANAGER.Username = ?";
+              FROM USERS
+              WHERE USERS.Email = ?";
     $stmt = $link->prepare($query);
-    $stmt-> bind_param("s", $username_check);
-    $username_check = $username;
+    $stmt-> bind_param("s", $email_check);
+    $email_check = $email;
     if($stmt->execute()){
     $stmt->store_result();
     $stmt->bind_result($id,
-                      $username,
-                      $hashed_password);
+                      $email,
+                      $hashed_password,
+                      $type);
 
       while($stmt->fetch()==1){
 
 
         if(password_verify($password,$hashed_password)){
-                  session_start();
-                  $_SESSION['username'] = $username;
-                 $_SESSION['id'] = $id;
 
+
+                  session_start();
+                  $_SESSION['email'] = $email;
+                 $_SESSION['id'] = $id;
+                if($type == 'M'){
                   header("location: manager_page.php");
-                  
+                  exit;
+                }
+                else if ($type =='A'){
+                  header("location: admin_page.php");
+                  exit;
+
+                }
+                else  {
+                    header("location:regular_page.php");
+                    exit;
+                }
+                
                 }
                 else{
                   $password_err = "\n The password Incorrect ):";

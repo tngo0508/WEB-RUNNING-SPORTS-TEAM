@@ -153,9 +153,10 @@ manager article {
     margin: 0;
     padding: 1em;
 }
-#manager h1{
-  font-size:30px;
-  margin-top:20px;
+#manager li{
+   text-align: center;
+   line-height: 75px;
+   font-size: 30px;
 }
 
 #manager p{
@@ -165,11 +166,9 @@ manager article {
 #manager .flex-boxs {
   display: flex;
   justify-content: space-between;
+
 }
-#manager .flex-boxs1 {
-  display: flex;
-  justify-content: flex-end;
-}
+
 
 /* Boxes */
 #boxes{
