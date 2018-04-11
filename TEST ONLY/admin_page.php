@@ -12,9 +12,9 @@
 ?>
 
   <body>
-    <h1>Hi, <b><?php echo $_SESSION['email']; echo " || Your ID: "; echo $_SESSION['id']; ?></b>. Welcome to Our ADMIN Page.</h1>
-    <h1><a href="logout.php" class="btn btn-danger">Sign Out</a></h1>
-    <h1><a href="update_profile.php" class="btn btn-danger">Update Profile</a></h1>
+    <h1>Hi, <b><?php echo $_SESSION['email']; echo " || Your ID: "; echo $_SESSION['id']; ?></b>. Welcome to Our ADMIN Page.
+    <a href="logout.php" >Sign Out</a>
+    <a href="update_profile.php">Update Profile</a></h1>
 
     <section id = "manager">
           <div class= "flex-boxs">
