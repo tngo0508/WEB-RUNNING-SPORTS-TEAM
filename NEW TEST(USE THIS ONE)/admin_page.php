@@ -61,24 +61,17 @@
     <h1>Hi, ADMIN<b><?php
     echo $_SESSION['email'];
      ?></b>. Welcome
-    <a href="logout.php" >Sign Out</a> ||
+    <a href="logout.php" >Sign Out</a>
 
     <div class="flex-containers">
       <div style="flex-grow: 1">
 
-
+            <h1> Promote form </h1>
           <form action="promote_update.php" method="post">
 
-                <td><select name="name_ID" required>
-                  <option value="" selected disabled hidden>Choose player's name here</option>
+                <div><select name="name_ID" required>
+                  <option value="" selected disabled hidden>Choose User's name here</option>
                   <?php
-                    // for each row of data returned,
-                    //   construct an Address object proviuseding first and last name
-                    //   emit an option for the pull down list such that
-                    //     the displayed name is retrieved from the Address object
-                    //     the value submitted is the unique ID for that player
-                    // for example:
-                    //     <option value="101">Duck, Daisy</option>
                     $stmt->data_seek(0);
                     while( $stmt->fetch() )
                     {
@@ -86,28 +79,21 @@
                       echo "<option value=\"$Name_ID\">".$player->name()."</option>\n";
                     }
                   ?>
-                </select></td>
-              </tr>
-              <tr>
-                <div class="form-group <?php echo (!empty($type_err)) ? 'has-error' : ''; ?>">
-                      <label>Promote this person to be:<sup>*</sup></label>
-                      <select name="type" class="form-control" value="<?php echo $type; ?>">
+
+                </select>
+                      <select name="type">
+                            <option value="" selected disabled hidden>Their New Position</option>
                         <option value="M">MANAGER</option>
                         <option value="A">ADMIN</option>
                       </select>
-                      <span class="help-block"><?php echo $type_err; ?></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Submit">
+                  <input type="submit" class="btn btn-primary" value="Promote Now">
                     <input type="reset" class="btn btn-default" value="Reset">
-                </div>
-              </tr>
+
+
             </form>
 
       </div>
       <div style="flex-grow: 1">
-
-
 
 
 
