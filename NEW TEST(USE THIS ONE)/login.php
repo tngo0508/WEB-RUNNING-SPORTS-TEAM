@@ -90,6 +90,8 @@ if(empty($email_err) &&empty($password_err) ){
                 }
                 else{
                   $password_err = "\n The password Incorrect ):";
+                  session_start();
+                  $_SESSION['email'] = $email;
                 }
               }
     }
