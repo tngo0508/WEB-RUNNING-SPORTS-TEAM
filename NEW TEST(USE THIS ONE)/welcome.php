@@ -28,6 +28,7 @@
 						<input type="submit" class="btn btn-primary" value="Submit">
 				</div>
 				<p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+         <a href="forgot_pass.php">FORGOT PASSWORD</a>.
 			</form>
 		</section>
 		</div>

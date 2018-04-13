@@ -4,8 +4,7 @@
 $ID       = (int) $_POST['name_ID'];  // Database unique ID for player's name
 $type     = trim( preg_replace("/\t|\R/",' ',$_POST['type']) );
 
-echo "$type ";
-echo " $ID";
+
 
 if( ! empty($ID ))  // Verify required fields are present
 {
