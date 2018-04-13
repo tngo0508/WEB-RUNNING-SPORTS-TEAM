@@ -147,7 +147,7 @@ if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
       <div class="container">
         <div class="row align-items-center">
           <div class="col">
-            <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2>Sign Up As </h2>
 
               <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">

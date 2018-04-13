@@ -47,7 +47,7 @@
         <?php require_once('login.php') ?>
         <div class="row align-items-center">
           <div class="col">
-            <form class="form-login" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+            <form class="form-login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <h2 class="form-login-header">Account Login</h2>
               <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email:<sup>*</sup></label>
