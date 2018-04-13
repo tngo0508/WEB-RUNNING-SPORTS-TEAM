@@ -57,7 +57,7 @@ header #top h1{
   margin:0;
 }
 
-header nav{
+header{
   float:right;
   margin-top:10px;
 }
@@ -79,7 +79,7 @@ header a:hover{
     padding: 1em;
     overflow: hidden;
 }
-#logining nav {
+#logining{
     float: left;
     max-width:300px;
     margin: 0;
