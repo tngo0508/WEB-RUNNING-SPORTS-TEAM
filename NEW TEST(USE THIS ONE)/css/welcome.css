@@ -1,11 +1,11 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 380px;
-  border-style: solid;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: 400px;
+  padding-top: 100px;
+  padding-bottom: 180px;
 }
 
 label {
@@ -18,4 +18,21 @@ label {
 
 #submit-button {
   float: right;
+}
+
+section {
+  background-image: radial-gradient(circle at 47% 0%,#ef544b -15%,#282b43 60%);
+  padding-bottom: 5px;
+}
+
+.col {
+  padding: 30px;
+  background-color: #dee4ea;
+  box-shadow: -1px 0px 20px 14px #e8491e91;
+  color: #f8f9fa;
+  background-color: rgba(0, 0, 0, .0001) !important;
+}
+
+h2 {
+  text-align: center;
 }
