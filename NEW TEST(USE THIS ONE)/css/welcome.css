@@ -1,28 +1,21 @@
-#logo2 {
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-}
-
 .container {
-  width: 500px;
-}
-
-.form-signin {
-  width: 300px;
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-
-.form-login .form-login-heading, .form-signin .checkbox {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  border-style: solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 label {
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 5px;
   font-weight: 700
+}
+
+#submit-button {
+  justify-content: flex-end;
+}
+
+#submit-button {
+  float: right;
 }

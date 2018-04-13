@@ -44,23 +44,24 @@
   <div class="container">
     <?php require_once('login.php') ?>
     <form class="form-login" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
-      <h1 class="form-login-header">Login form</h1>
+      <h2 class="form-login-header">Account Login</h2>
       <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
         <label>Email:<sup>*</sup></label>
-        <input type="text" name="email" class="form-control">
+        <input type="text" name="email" class="form-control" placeholder="example@email.com" autofocus required>
         <span class="help-block"><?php echo $email_err; ?></span>
       </div>
       <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-        <label>Pass:<sup>*</sup></label>
-        <input type="password" name="password" class="form-control">
+        <label>Password:<sup>*</sup></label>
+        <input type="password" name="password" class="form-control" placeholder="password" required>
         <span class="help-block"><?php echo $password_err; ?></span>
       </div>
 
       <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <button id="submit-button" type="submit" class="btn btn-primary" value="Submit">Submit</button>
+        <button type="reset" class="btn btn-primary" name="button">Reset</button>
       </div>
       <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-      <a href="forgot_pass.php">FORGOT PASSWORD</a>.
+      <a href="forgot_pass.php">Forgot password?</a>
     </form>
     <!-- <div>
       <img src="./logo/2.jpg">
