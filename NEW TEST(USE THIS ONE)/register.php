@@ -142,43 +142,48 @@ if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
           </ul>
         </div>
       </nav>
+      <section>
+
       <div class="container">
-        <h2>Sign Up As </h2>
+        <div class="row align-items-center">
+          <div class="col">
+            <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+              <h2>Sign Up As </h2>
+
+              <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>EMAIL:<sup>*</sup></label>
+                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>" placeholder="example@mail.com" autofocus required>
+                <span class="help-block"><?php echo $email_err; ?></span>
+              </div>
+              <div>
 
 
-        <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+              </div>
+              <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password:<sup>*</sup></label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" placeholder="password" required>
+                <span class="help-block"><?php echo $password_err; ?></span>
+              </div>
 
-          <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-            <label>EMAIL:<sup>*</sup></label>
-            <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
-            <span class="help-block"><?php echo $email_err; ?></span>
+              <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password:<sup>*</sup></label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>" placeholder="confirmed password" required>
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+              </div>
+
+
+              <div class="form-group">
+                <input id="submit" type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+              </div>
+              <p>Already have an account? <a href="welcome.php">Login here</a>.</p>
+            </form>
           </div>
-          <div>
 
-
-          </div>
-          <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Password:<sup>*</sup></label>
-            <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-            <span class="help-block"><?php echo $password_err; ?></span>
-          </div>
-
-          <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-            <label>Confirm Password:<sup>*</sup></label>
-            <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-            <span class="help-block"><?php echo $confirm_password_err; ?></span>
-          </div>
-
-
-          <div class="form-group">
-            <input id="submit" type="submit" class="btn btn-primary" value="Submit">
-            <input type="reset" class="btn btn-default" value="Reset">
-          </div>
-          <p>Already have an account? <a href="welcome.php">Login here</a>.</p>
-        </form>
+        </div>
       </div>
 
-
+    </section>
 
 
       <?php
