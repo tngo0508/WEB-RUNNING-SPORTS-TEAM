@@ -106,6 +106,7 @@ if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/register.css">
   </head>
 
   <body>
@@ -141,7 +142,7 @@ if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
           </ul>
         </div>
       </nav>
-      <div class="wrapper">
+      <div class="container">
         <h2>Sign Up As </h2>
 
 
@@ -170,7 +171,7 @@ if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
 
 
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input id="submit" type="submit" class="btn btn-primary" value="Submit">
             <input type="reset" class="btn btn-default" value="Reset">
           </div>
           <p>Already have an account? <a href="welcome.php">Login here</a>.</p>
