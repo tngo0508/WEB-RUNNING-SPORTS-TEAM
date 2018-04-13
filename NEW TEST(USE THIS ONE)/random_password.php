@@ -29,7 +29,7 @@ function reset_password($email) {
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
 
-    ECHO "NEW PASSOWRD TEST: $new_passwordhash";
+
 
     $sql ="UPDATE USERS
 
@@ -42,15 +42,13 @@ function reset_password($email) {
       $new_passwordhash= password_hash($new_passwordhash, PASSWORD_DEFAULT);
        $stmt->bind_param('s',$new_passwordhash);
 
-      if($stmt->execute()){
-        echo " changed pass already $new_passwordhash";
-                      }
+    $stmt->execute();
 
            }
    }
 
 
-
+return $new_passwordhash;
 }
 
 ?>
